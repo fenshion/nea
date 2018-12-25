@@ -13,7 +13,7 @@ def create_model(args, initial_mean_value, overal_maxlen, vocab):
 	
 	###############################################################################################################################
 	## Recurrence unit type
-	#
+	# 决定循环网络模型，默认为lstm
 
 	if args.recurrent_unit == 'lstm':
 		from keras.layers.recurrent import LSTM as RNN
@@ -24,7 +24,7 @@ def create_model(args, initial_mean_value, overal_maxlen, vocab):
 
 	###############################################################################################################################
 	## Create Model
-	#
+	# 
 	
 	dropout_W = 0.5		# default=0.5
 	dropout_U = 0.1		# default=0.1
