@@ -43,7 +43,7 @@ args = parser.parse_args()
 
 out_dir = args.out_dir_path
 
-U.mkdir_p(out_dir + '/preds')
+U.mkdir_p(out_dir + '/preds')  #创建输出文件夹
 U.set_logger(out_dir)
 U.print_args(args)
 
@@ -73,6 +73,7 @@ from keras.preprocessing import sequence
 	(args.train_path, args.dev_path, args.test_path), args.prompt_id, args.vocab_size, args.maxlen, tokenize_text=True, to_lower=True, sort_by_len=False, vocab_path=args.vocab_path)
 
 # Dump vocab
+#对象持久化方法，将对象保存在磁盘上，需要时读出。
 with open(out_dir + '/vocab.pkl', 'wb') as vocab_file:
 	pk.dump(vocab, vocab_file)
 
@@ -138,6 +139,7 @@ test_y = dataset.get_model_friendly_scores(test_y, test_pmt)
 
 ###############################################################################################################################
 ## Optimizaer algorithm
+# 选择优化器
 #
 
 from nea.optimizers import get_optimizer
